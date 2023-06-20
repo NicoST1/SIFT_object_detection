@@ -1,5 +1,7 @@
 # Object Detection using SIFT
 
+![Example output - object bounding boxes](object_detection.png)
+
 This project uses the Scale-Invariant Feature Transform (SIFT) for detecting and recognizing labeled icons in images. Two approaches are implemented:
 
 1. **Basic Approach:** This approach involves segmenting the images and using SIFT to identify keypoints.
