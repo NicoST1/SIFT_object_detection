@@ -47,7 +47,7 @@ if __name__ == '__main__':
         argument = sys.argv[1]
 
         if argument == 'basic':
-            print('Running basic SIFT')
+            print('Running basic SIFT... (This may take a while)')
 
             train_data_dir = 'Train/'
             query_data_dirs = [
@@ -64,13 +64,19 @@ if __name__ == '__main__':
                 print(RED, 'Error while reading datasets:', NORMAL, traceback.format_exc())
                 exit()
 
+            print('* Press Enter to continue')
             feature_detection(train_data, query_data, params_basic, show_output=True)
 
         elif argument == 'bovw':
-            print('Running BoVW SIFT')
+            print('Running BoVW SIFT... (This may take a while)')
 
             img_query = ImageQuery()
-            img_query.match_images(params_bovw, show_output=True)
+            try:
+                print('* Press Enter to continue')
+                img_query.match_images(params_bovw, show_output=True)
+            except KeyboardInterrupt:
+                print('Interrupted by user')
+                exit()
 
         else:
             print('Invalid argument')
